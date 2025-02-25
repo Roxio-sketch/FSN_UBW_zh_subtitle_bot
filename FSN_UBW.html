@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subtitle Files</title>
+    <title>My Repository</title>
 </head>
 <body>
-    <h1>Subtitle Files</h1>
-    <ul>
-        <li><a href="FSN_UBW.txt">example1.srt</a></li>
-        <li><a href="FSN_UBW.txt">example2.srt</a></li>
-    </ul>
+    <h1>Repository Root Directory</h1>
+    <pre id="txtContent">Loading...</pre>
+
+    <script>
+        // 使用 fetch API 加载 txt 文件
+        fetch('FSN_UBW.txt')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('txtContent').textContent = text;
+            })
+            .catch(error => {
+                document.getElementById('txtContent').textContent = 'Error loading file: ' + error;
+            });
+    </script>
 </body>
 </html>
